@@ -1,5 +1,19 @@
 <header><h2>_____ {{ hero.name | uppercase }} Details _____</h2></header>
 <section>
     <div><span>Score: </span> {{hero.score}}</div>
+    <div>
+        <label>Edit Name:
+            <input [(ngModel)]="hero.name" placeholder="write hero's name"/>
+        </label>
+    </div>
     
+</section>
+
+<header><h2>Current Heroes</h2></header>
+<section>
+    <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+            <span class="badge">{{hero.name}} </span> --------------------- Score: {{hero.score}}
+        </li>
+    </ul>
 </section>

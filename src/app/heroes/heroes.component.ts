@@ -9,13 +9,13 @@ import {HEROES} from '../heroes';
 })
 export class HeroesComponent implements OnInit {
 
-  hero: Hero = {
-    id: 1,
-    score: 9,
-    name: "Speedy"
-  };
-
   heroes = HEROES;
+
+  selectedHero: Hero;
+
+  onSelect(hero:Hero): void {
+    this.selectedHero = hero;
+  }
 
   constructor() { }
 

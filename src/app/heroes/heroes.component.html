@@ -1,5 +1,4 @@
-<header><h2>_____ {{ hero.name | uppercase }} Details _____</h2></header>
-<section>
+<!-- <section>
     <div><span>Score: </span> {{hero.score}}</div>
     <div>
         <label>Edit Name:
@@ -7,13 +6,26 @@
         </label>
     </div>
     
-</section>
+</section> -->
 
 <header><h2>Current Heroes</h2></header>
 <section>
     <ul class="heroes">
-        <li *ngFor="let hero of heroes">
-            <span class="badge">{{hero.name}} </span> --------------------- Score: {{hero.score}}
+        <li *ngFor="let hero of heroes" 
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">
+            <header><h2> {{ hero.name | uppercase }}</h2></header>
+
+            <span class="badge">{{hero.name}} </span> ---- Score: {{hero.score}}
         </li>
     </ul>
+</section>
+
+<section>
+    <div *ngIf="selectedHero">
+        <header><h2> {{ selectedHero.name | uppercase }}</h2></header>
+        <label>Edit Name:
+            <input [(ngModel)]="selectedHero.name" placeholder="write hero's name" />
+        </label>
+    </div>
 </section>
